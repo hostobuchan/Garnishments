@@ -41,8 +41,8 @@
     <Reference Include="Ftp, Version=2.0.23268.1746, Culture=neutral, PublicKeyToken=6dc438ab78a525b3, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Ftp.dll.2.0.23268.1746\lib\net48\Ftp.dll</HintPath>
     </Reference>
-    <Reference Include="Renci.SshNet, Version=2021.10.1.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Core.Renci.SshNet.2021.10.2\lib\net40\Renci.SshNet.dll</HintPath>
+    <Reference Include="Renci.SshNet, Version=2020.0.2.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\SSH.NET.2020.0.2\lib\net40\Renci.SshNet.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
