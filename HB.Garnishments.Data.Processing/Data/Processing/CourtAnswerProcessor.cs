@@ -193,7 +193,7 @@ namespace HB.Garnishments.Data.Processing
                 }
                 catch (Exception ex)
                 {
-
+                 Console.WriteLine(ex.ToString());
                 }
 
                 if (registeredAgent != null)

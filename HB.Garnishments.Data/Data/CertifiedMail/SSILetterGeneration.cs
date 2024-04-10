@@ -14,6 +14,7 @@ using org.pdfclown.documents.interaction.annotations;
 using org.pdfclown.files;
 using IDAutomation_FontEncoder;
 using System.Threading.Tasks;
+using System.Windows;
 using org.pdfclown.bytes;
 
 namespace HB.Garnishments.Data.CertifiedMail
@@ -30,7 +31,7 @@ namespace HB.Garnishments.Data.CertifiedMail
                 File TemplateFile = new File(letterHead);
                 Document TemplateDocument = TemplateFile.Document;
                 Page TemplatePage = TemplateDocument.Pages.Single();
-
+                
                 using (File file = new File())
                 {
                     Document d = file.Document;
