@@ -1,0 +1,370 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EAC7AAEF-9364-4246-AE06-6B2F97B83BC4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EvaluationCriteria</RootNamespace>
+    <AssemblyName>EvaluationCriteria</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Accounts\DiaryCode.cs" />
+    <Compile Include="Accounts\EvaluateeAccount.cs" />
+    <Compile Include="Accounts\EvaluateeDataHandler.cs" />
+    <Compile Include="Accounts\EvaluateeDebtor.cs" />
+    <Compile Include="Attributes\DerivedPropertyAssociationAttribute.cs" />
+    <Compile Include="Attributes\PropertyAssociationAttribute.cs" />
+    <Compile Include="Criteria.cs" />
+    <Compile Include="CriteriaSets\CriteriaParameters\Base\CIntValueParam.cs" />
+    <Compile Include="CriteriaSets\CriteriaParameters\Base\CStringValueParam.cs" />
+    <Compile Include="CriteriaSets\CriteriaParameters\CBasicParam.cs" />
+    <Compile Include="CriteriaSets\CriteriaParameters\CBoolParam.cs" />
+    <Compile Include="CriteriaSets\CriteriaParameters\CClassParam.cs" />
+    <Compile Include="CriteriaSets\CriteriaParameters\CEnumParam.cs" />
+    <Compile Include="CriteriaSets\CriteriaParameters\CLetterParam.cs" />
+    <Compile Include="CriteriaSets\Criteria.cs" />
+    <Compile Include="CriteriaSets\Criteria2.cs" />
+    <Compile Include="CriteriaSets\CriteriaParameters\CDateParam.cs" />
+    <Compile Include="CriteriaSets\CriteriaParameters\CMediaParam.cs" />
+    <Compile Include="CriteriaSets\CriteriaParameters\CObjListParam.cs" />
+    <Compile Include="CriteriaSets\CriteriaParameters\CodeLists\CodeList.cs" />
+    <Compile Include="CriteriaSets\CriteriaParameters\CodeLists\CodeListManager.cs" />
+    <Compile Include="CriteriaSets\CriteriaParameters\COptParam.cs" />
+    <Compile Include="CriteriaSets\CriteriaParameters\Base\CParam.cs" />
+    <Compile Include="CriteriaSets\CriteriaParameters\CSimpleParam.cs" />
+    <Compile Include="CriteriaSets\CriteriaParameters\CStringParam.cs" />
+    <Compile Include="Interfaces\ICriteriaParam.cs" />
+    <Compile Include="CriteriaSets\SimpleSets\SimpleSet.cs" />
+    <Compile Include="CriteriaSets\SimpleSets\SimpleSetDataHandler.cs" />
+    <Compile Include="CriteriaSets\State.cs" />
+    <Compile Include="Enums\CodeListType.cs" />
+    <Compile Include="Enums\Disposition.cs" />
+    <Compile Include="Evaluatees.cs" />
+    <Compile Include="Evaluatees2.cs" />
+    <Compile Include="Interfaces\ICodeList.cs" />
+    <Compile Include="Interfaces\ICriteriaLoader.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="UIControls\AddOptionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIControls\AddOptionForm.designer.cs">
+      <DependentUpon>AddOptionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIControls\CodeListObjForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIControls\CodeListObjForm.designer.cs">
+      <DependentUpon>CodeListObjForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIControls\CodeListListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIControls\CodeListListForm.designer.cs">
+      <DependentUpon>CodeListListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIControls\CodeListManagerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIControls\CodeListManagerForm.designer.cs">
+      <DependentUpon>CodeListManagerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIControls\CodeListTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIControls\CodeListTypeForm.Designer.cs">
+      <DependentUpon>CodeListTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIControls\CodeStringListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIControls\CodeStringListForm.designer.cs">
+      <DependentUpon>CodeStringListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIControls\ContextMenus\SimpleSetContextMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UIControls\ContextMenus\SimpleSetContextMenu.Designer.cs">
+      <DependentUpon>SimpleSetContextMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIControls\ParamMediaControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UIControls\ParamMediaControl.designer.cs">
+      <DependentUpon>ParamMediaControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIControls\ParamObjControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UIControls\ParamObjControl.designer.cs">
+      <DependentUpon>ParamObjControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIControls\ParamStringControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UIControls\ParamStringControl.designer.cs">
+      <DependentUpon>ParamStringControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIControls\CriteriaOptionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIControls\CriteriaOptionForm.designer.cs">
+      <DependentUpon>CriteriaOptionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIControls\EditOptionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIControls\EditOptionForm.designer.cs">
+      <DependentUpon>EditOptionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIControls\EnterNameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIControls\EnterNameForm.designer.cs">
+      <DependentUpon>EnterNameForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\ICodeListManager.cs" />
+    <Compile Include="UIControls\ParamBasicControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UIControls\ParamBasicControl.designer.cs">
+      <DependentUpon>ParamBasicControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIControls\ParamBoolControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UIControls\ParamBoolControl.designer.cs">
+      <DependentUpon>ParamBoolControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIControls\ParamClassControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UIControls\ParamClassControl.designer.cs">
+      <DependentUpon>ParamClassControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIControls\ParamDateControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UIControls\ParamDateControl.designer.cs">
+      <DependentUpon>ParamDateControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIControls\ParamOptControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UIControls\ParamOptControl.designer.cs">
+      <DependentUpon>ParamOptControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIControls\ParamSimpleControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UIControls\ParamSimpleControl.designer.cs">
+      <DependentUpon>ParamSimpleControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIControls\ParamUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UIControls\SimpleSetSelectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIControls\SimpleSetSelectionForm.Designer.cs">
+      <DependentUpon>SimpleSetSelectionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DebtorName.cs" />
+    <Compile Include="Utilities\NumberCleanup.cs" />
+    <Compile Include="Utilities\SifRateFinder.cs" />
+    <Compile Include="Utilities\SQLDistinguisherString.cs" />
+    <Compile Include="Utilities\StringComparer.cs" />
+    <Compile Include="Utilities\Suffixes.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIControls\AddOptionForm.resx">
+      <DependentUpon>AddOptionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIControls\CodeListObjForm.resx">
+      <DependentUpon>CodeListObjForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIControls\CodeListListForm.resx">
+      <DependentUpon>CodeListListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIControls\CodeListManagerForm.resx">
+      <DependentUpon>CodeListManagerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIControls\CodeListTypeForm.resx">
+      <DependentUpon>CodeListTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIControls\CodeStringListForm.resx">
+      <DependentUpon>CodeStringListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIControls\ParamMediaControl.resx">
+      <DependentUpon>ParamMediaControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIControls\ParamObjControl.resx">
+      <DependentUpon>ParamObjControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIControls\ParamStringControl.resx">
+      <DependentUpon>ParamStringControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIControls\CriteriaOptionForm.resx">
+      <DependentUpon>CriteriaOptionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIControls\EditOptionForm.resx">
+      <DependentUpon>EditOptionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIControls\EnterNameForm.resx">
+      <DependentUpon>EnterNameForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIControls\ParamBasicControl.resx">
+      <DependentUpon>ParamBasicControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIControls\ParamBoolControl.resx">
+      <DependentUpon>ParamBoolControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIControls\ParamClassControl.resx">
+      <DependentUpon>ParamClassControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIControls\ParamDateControl.resx">
+      <DependentUpon>ParamDateControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIControls\ParamOptControl.resx">
+      <DependentUpon>ParamOptControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIControls\ParamSimpleControl.resx">
+      <DependentUpon>ParamSimpleControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIControls\SimpleSetSelectionForm.resx">
+      <DependentUpon>SimpleSetSelectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clipboard.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

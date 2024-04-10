@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CA6B0E28-C7A8-4FCA-B785-43880E961CB6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Walz.Data</RootNamespace>
+    <AssemblyName>Walz</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommonFormsLibrary">
+      <HintPath>..\..\CommonFormsLibrary\bin\Debug\CommonFormsLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="ExchangeInterface">
+      <HintPath>..\..\ExchangeInterface\ExchangeInterface\bin\Debug\ExchangeInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="RecordTypes">
+      <HintPath>..\..\RecordTypes\RecordTypes\bin\Debug\RecordTypes.dll</HintPath>
+    </Reference>
+    <Reference Include="RemoteFile">
+      <HintPath>..\..\RemoteFile\RemoteFile\bin\Debug\RemoteFile.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Zip, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Zip\Zip\bin\Debug\Zip.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataHandler.cs" />
+    <Compile Include="Dictionaries\Dictionaries.cs" />
+    <Compile Include="Enums\CostModifier.cs" />
+    <Compile Include="Enums\BatchStatus.cs" />
+    <Compile Include="Enums\CostType.cs" />
+    <Compile Include="Enums\FileType.cs" />
+    <Compile Include="Enums\FileVersion.cs" />
+    <Compile Include="Enums\FormType.cs" />
+    <Compile Include="Enums\LastStatus.cs" />
+    <Compile Include="Enums\ReturnReceiptType.cs" />
+    <Compile Include="Envelope.cs" />
+    <Compile Include="Files\BarcodesFile.cs" />
+    <Compile Include="Files\BaseFile.cs" />
+    <Compile Include="Files\Batches\BatchBuilder.cs" />
+    <Compile Include="Files\Batches\BatchInfo.cs" />
+    <Compile Include="Files\Batches\BatchManager.cs" />
+    <Compile Include="Files\FileType.cs" />
+    <Compile Include="Files\ImagesFile.cs" />
+    <Compile Include="Files\ReceiptFile.cs" />
+    <Compile Include="Files\FileManager.cs" />
+    <Compile Include="Files\Records\BarcodesRecord.cs" />
+    <Compile Include="Files\Records\BaseRecord.cs" />
+    <Compile Include="Files\Records\ImagesRecord.cs" />
+    <Compile Include="Files\Records\UploadRecord.cs" />
+    <Compile Include="Letter.cs" />
+    <Compile Include="Modifier.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Recipient.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\BatchManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\BatchManagementForm.Designer.cs">
+      <DependentUpon>BatchManagementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DisplayPdfForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\DisplayPdfForm.Designer.cs">
+      <DependentUpon>DisplayPdfForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\RecipientListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\RecipientListForm.Designer.cs">
+      <DependentUpon>RecipientListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\SettingsForm.Designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\BatchManagementForm.resx">
+      <DependentUpon>BatchManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\DisplayPdfForm.resx">
+      <DependentUpon>DisplayPdfForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\RecipientListForm.resx">
+      <DependentUpon>RecipientListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HBLetters2.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

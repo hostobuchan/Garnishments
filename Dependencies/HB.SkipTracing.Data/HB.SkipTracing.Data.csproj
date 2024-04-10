@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A6BAF1B6-DFA2-442E-A58D-37701C742E23}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HB.SkipTracing.Data</RootNamespace>
+    <AssemblyName>HB.SkipTracing.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommonFormsLibrary">
+      <HintPath>..\CommonFormsLibrary\bin\Debug\CommonFormsLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="EvaluationCriteria">
+      <HintPath>..\EvaluationCriteria\EvaluationCriteria\bin\Debug\EvaluationCriteria.dll</HintPath>
+    </Reference>
+    <Reference Include="ExchangeInterface">
+      <HintPath>..\ExchangeInterface\ExchangeInterface\bin\Debug\ExchangeInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="HB.Garnishments.Data">
+      <HintPath>bin\Release\HB.Garnishments.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="RecordTypes">
+      <HintPath>..\RecordTypes\RecordTypes\bin\Debug\RecordTypes.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Accounts\DataHandler.cs" />
+    <Compile Include="Accounts\EvaluateeAccount.cs" />
+    <Compile Include="Accounts\EvaluateeDebtor.cs" />
+    <Compile Include="Assets\AccountAssetInfo.cs" />
+    <Compile Include="Assets\AssetInfoSurrogate.cs" />
+    <Compile Include="Batches\BatchHandler.cs" />
+    <Compile Include="Batches\BatchInfo.cs" />
+    <Compile Include="DataHandler.cs" />
+    <Compile Include="Dictionaries\AssetTypeTranslator.cs" />
+    <Compile Include="Enums\AssetResultReason.cs" />
+    <Compile Include="Enums\AssetResultType.cs" />
+    <Compile Include="Enums\AssetType.cs" />
+    <Compile Include="Enums\GarnishmentResultReason.cs" />
+    <Compile Include="Enums\ImportSettings.cs" />
+    <Compile Include="Interfaces\IDataHandler.cs" />
+    <Compile Include="Interfaces\IFileReader.cs" />
+    <Compile Include="Interfaces\IBatchHandler.cs" />
+    <Compile Include="Processor.cs" />
+    <Compile Include="Records\DownloadRecord.cs" />
+    <Compile Include="Records\UploadRecord.cs" />
+    <Compile Include="Reporting\AssetResult.cs" />
+    <Compile Include="Reporting\ReportDataHandler.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VendorSettings.cs" />
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ExcelInterface\ExcelInterface.csproj">
+      <Project>{7109e4dd-8d16-43c8-9cc1-7c82cf763bd8}</Project>
+      <Name>ExcelInterface</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

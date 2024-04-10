@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{076E3E80-66CD-4870-9BF1-8D7EB96B898A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HB.Garnishments.Data.Processing</RootNamespace>
+    <AssemblyName>HB.Garnishments.Data.Processing</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EvaluationCriteria">
+      <HintPath>..\Dependencies\EvaluationCriteria\EvaluationCriteria\bin\Debug\EvaluationCriteria.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelInterface">
+      <HintPath>..\Dependencies\ExcelInterface\bin\Debug\ExcelInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="HB.Garnishments.Data">
+      <HintPath>..\HB.Garnishments.Data\bin\Debug\HB.Garnishments.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="HB.SkipTracing.SCRA.Data">
+      <HintPath>..\Dependencies\HB.SkipTracing.SCRA.Data\bin\Debug\HB.SkipTracing.SCRA.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack">
+      <HintPath>..\..\..\Windows API Code Pack 1.1\binaries\Microsoft.WindowsAPICodePack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell">
+      <HintPath>..\..\..\Windows API Code Pack 1.1\binaries\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="RecordTypes">
+      <HintPath>..\Dependencies\RecordTypes\RecordTypes\bin\Debug\RecordTypes.dll</HintPath>
+    </Reference>
+    <Reference Include="RemoteFile">
+      <HintPath>..\Dependencies\RemoteFile\RemoteFile\bin\Debug\RemoteFile.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Walz">
+      <HintPath>..\Dependencies\Walz\Walz\bin\Debug\Walz.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="Zip">
+      <HintPath>..\Dependencies\Zip\Zip\bin\Debug\Zip.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\Processing\CourtAnswerProcessor.cs" />
+    <Compile Include="Data\Processing\Fees\Check.cs" />
+    <Compile Include="Data\Processing\Fees\CostCodes.cs" />
+    <Compile Include="Data\Processing\Fees\CourtFeeHandler.cs" />
+    <Compile Include="Data\Processing\FilingProcessor.cs" />
+    <Compile Include="Data\Processing\GarnisheeAnswerProcessor.cs" />
+    <Compile Include="Data\Processing\HearingRequestProcessor.cs" />
+    <Compile Include="Data\Processing\IProcessor.cs" />
+    <Compile Include="Data\Processing\NoNegativeResultProcessor.cs" />
+    <Compile Include="Data\Processing\Processor.cs" />
+    <Compile Include="Data\Processing\Rejects\ReportGenerator.cs" />
+    <Compile Include="Data\Processing\ReleaseOfGarnProcessor.cs" />
+    <Compile Include="Data\Processing\RequestProcessor.cs" />
+    <Compile Include="Data\Processing\SignedProcessor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\HBLetters3.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

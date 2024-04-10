@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="HB.Garnishments.UI.Controls.Assets.RegisteredAgentControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:sdo="clr-namespace:CommonForms.WPF;assembly=CommonFormsLibrary"
+             xmlns:local="clr-namespace:HB.Garnishments.UI.Controls.Assets"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Loaded="UserControl_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <sdo:SelectableTextBlock Name="ID" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" HorizontalAlignment="Center" FontWeight="Bold" IsManipulationEnabled="True"/>
+        <sdo:SelectableTextBlock Name="Name" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" HorizontalAlignment="Center"/>
+        <sdo:SelectableTextBlock Name="Attn" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" HorizontalAlignment="Center"/>
+        <sdo:SelectableTextBlock Name="Address" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" HorizontalAlignment="Center"/>
+        <sdo:SelectableTextBlock Name="CSZ" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="4" HorizontalAlignment="Center"/>
+        <sdo:SelectableTextBlock Name="Phone" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="5" HorizontalAlignment="Center"/>
+        <sdo:SelectableTextBlock Name="Fax" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="6" HorizontalAlignment="Center"/>
+        <sdo:SelectableTextBlock Name="Email" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="7" HorizontalAlignment="Center" TextWrapping="Wrap"/>
+        <sdo:SelectableTextBlock Name="HomePage" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="8" HorizontalAlignment="Center" TextWrapping="Wrap"/>
+        <Button Name="btnEdit" Grid.Column="1" Grid.Row="8" Content="Change" Margin="0,0,10,10" Click="BtnEdit_Click"/>
+    </Grid>
+</UserControl>

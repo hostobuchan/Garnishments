@@ -1,0 +1,15 @@
+﻿<Window x:Class="HB.Garnishments.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HB.Garnishments.UI"
+        mc:Ignorable="d"
+        Title="Garnishment Control Panel" Height="242.544" Width="250.219" Loaded="Window_Loaded" Icon="Resources/HB.ico" WindowStyle="ThreeDBorderWindow" ResizeMode="NoResize">
+    <Grid>
+        <Button x:Name="btnProcess" Content="Process Garns" Margin="58,33,58,0" VerticalAlignment="Top" RenderTransformOrigin="0.727,3.417" Height="27" Grid.ColumnSpan="2" Click="btnProcess_Click"/>
+        <Button x:Name="btnSettings" Content="Edit Settings" Margin="58,78,58,0" VerticalAlignment="Top" RenderTransformOrigin="0.727,3.417" Height="27" Grid.ColumnSpan="2" Click="btnSettings_Click"/>
+        <Button x:Name="btnClose" Content="Close" Margin="84,0,84,30" Height="20" VerticalAlignment="Bottom" Click="btnClose_Click"/>
+
+    </Grid>
+</Window>

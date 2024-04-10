@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A01796A5-1768-47A3-A873-CF8306089DF5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RecordTypes</RootNamespace>
+    <AssemblyName>RecordTypes</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>document-scroll.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MergePops\Attributes\MergePopFieldAttribute.cs" />
+    <Compile Include="MergePops\Attributes\MergePopRequiredGroupFieldAttribute.cs" />
+    <Compile Include="MergePops\FileReader.cs" />
+    <Compile Include="MergePops\FileWriter.cs" />
+    <Compile Include="MergePops\MergePop.cs" />
+    <Compile Include="MergePops\MPField.cs" />
+    <Compile Include="RecordTypes2\CM\Attributes\CMEDIFieldAttribute.cs" />
+    <Compile Include="RecordTypes2\CM\Base\CMEDIRecordBase.cs" />
+    <Compile Include="RecordTypes2\CM\Base\CMEDISenderReceiverRecord.cs" />
+    <Compile Include="RecordTypes2\CM\DataTypes\CMEDITypeBase.cs" />
+    <Compile Include="RecordTypes2\CM\DataTypes\CMEDITypes.cs" />
+    <Compile Include="RecordTypes2\CM\Dictionaries\Disposition.cs" />
+    <Compile Include="RecordTypes2\CM\Enums\Disposition.cs" />
+    <Compile Include="RecordTypes2\CM\RecordType0.cs" />
+    <Compile Include="RecordTypes2\CM\RecordType110.cs" />
+    <Compile Include="RecordTypes2\CM\RecordType172.cs" />
+    <Compile Include="RecordTypes2\YGC\ReceiverToSenderRecordExtension.cs" />
+    <Compile Include="RecordTypes2\YGC\SenderToReceiverRecordExtension.cs" />
+    <Compile Include="RecordTypes\Banko\BankruptcyReturnFile.cs" />
+    <Compile Include="RecordTypes\Banko\BankruptcyUploadFile.cs" />
+    <Compile Include="RecordTypes\Banko\Base\DataTypes\DataTypes.cs" />
+    <Compile Include="RecordTypes\Banko\Base\Dictionaries\ChapterCode.cs" />
+    <Compile Include="RecordTypes\Banko\Base\Enums\ChapterCode.cs" />
+    <Compile Include="RecordTypes\Banko\Base\Enums\Congeniality.cs" />
+    <Compile Include="RecordTypes\Banko\Base\Enums\DispositionCode.cs" />
+    <Compile Include="RecordTypes\Banko\Base\Enums\ECOA.cs" />
+    <Compile Include="RecordTypes\Banko\Base\Enums\HitType.cs" />
+    <Compile Include="RecordTypes\Banko\Base\Enums\LitigiousFlag.cs" />
+    <Compile Include="RecordTypes\Banko\Base\Enums\ProductCode.cs" />
+    <Compile Include="RecordTypes\Banko\DeceasedReturnFile.cs" />
+    <Compile Include="RecordTypes\Banko\Extensions.cs" />
+    <Compile Include="RecordTypes\Banko\LitigiousCase.cs" />
+    <Compile Include="RecordTypes\Banko\LitigiousReturnFile.cs" />
+    <Compile Include="RecordTypes\Citi\Citi.cs" />
+    <Compile Include="RecordTypes\Citi\CitiMaint.cs" />
+    <Compile Include="RecordTypes2\CollectionTriggers\CollectionTriggers.cs" />
+    <Compile Include="RecordTypes2\CollectionTriggers\CollectionTriggersBase.cs" />
+    <Compile Include="RecordTypes2\FileReader2.cs" />
+    <Compile Include="RecordTypes\CMEDI\Base\CMEDIAccountRecord.cs" />
+    <Compile Include="RecordTypes\CMEDI\Base\CMEDIBase.cs" />
+    <Compile Include="RecordTypes\CMEDI\Base\CMEDIDateTimeRecord.cs" />
+    <Compile Include="RecordTypes\CMEDI\Base\CMEDISenderReceiverRecord.cs" />
+    <Compile Include="RecordTypes\CMEDI\Base\CMEDISenderRecord.cs" />
+    <Compile Include="RecordTypes\CMEDI\CommentRecord.cs" />
+    <Compile Include="RecordTypes\CMEDI\FileWriter.cs" />
+    <Compile Include="RecordTypes\CMEDI\Record145.cs" />
+    <Compile Include="RecordTypes\CMEDI\Record185.cs" />
+    <Compile Include="RecordTypes\Delimited\Base\CSVBaseRecord.cs" />
+    <Compile Include="RecordTypes\Delimited\Base\DelimitedBase.cs" />
+    <Compile Include="RecordTypes\Delimited\DataTypes\DelimitedBool.cs" />
+    <Compile Include="RecordTypes\Delimited\DataTypes\DelimitedDate.cs" />
+    <Compile Include="RecordTypes\Delimited\DataTypes\DelimitedDecimal.cs" />
+    <Compile Include="RecordTypes\Delimited\DataTypes\DelimitedDictionary.cs" />
+    <Compile Include="RecordTypes\Delimited\DataTypes\DelimitedEnum.cs" />
+    <Compile Include="RecordTypes\Delimited\DataTypes\DelimitedNumber.cs" />
+    <Compile Include="RecordTypes\Delimited\DataTypes\DelimitedString.cs" />
+    <Compile Include="RecordTypes\Delimited\FileReader.cs" />
+    <Compile Include="RecordTypes\Ford\Dictionaries\FinancialTransactionCodes.cs" />
+    <Compile Include="RecordTypes\Ford\Enums\FinancialTransactionCodes.cs" />
+    <Compile Include="RecordTypes\Ford\Maintenance\FinancialRecord.cs" />
+    <Compile Include="RecordTypes\Ford\Maintenance\MaintenanceRecord.cs" />
+    <Compile Include="RecordTypes\Ford\Maintenance\Transactions\Transaction.cs" />
+    <Compile Include="RecordTypes\RMS\Base\AccountInfo.cs" />
+    <Compile Include="RecordTypes\RMS\Base\Record.cs" />
+    <Compile Include="RecordTypes\RMS\Base\RMSList.cs" />
+    <Compile Include="RecordTypes\RMS\DataTypes\RMSBool.cs" />
+    <Compile Include="RecordTypes\RMS\DataTypes\RMSDate.cs" />
+    <Compile Include="RecordTypes\RMS\DataTypes\RMSDateTime.cs" />
+    <Compile Include="RecordTypes\RMS\DataTypes\RMSDecimal.cs" />
+    <Compile Include="RecordTypes\RMS\DataTypes\RMSDict.cs" />
+    <Compile Include="RecordTypes\RMS\DataTypes\RMSEnum.cs" />
+    <Compile Include="RecordTypes\RMS\DataTypes\RMSNumber.cs" />
+    <Compile Include="RecordTypes\RMS\DataTypes\RMSString.cs" />
+    <Compile Include="RecordTypes\RMS\DataTypes\RMSZoneDecimal.cs" />
+    <Compile Include="RecordTypes\RMS\Enums\CustomerTypes.cs" />
+    <Compile Include="RecordTypes\RMS\Enums\LanguagePreference.cs" />
+    <Compile Include="RecordTypes\RMS\Enums\OwnRent.cs" />
+    <Compile Include="RecordTypes\RMS\Enums\RecordTypes.cs" />
+    <Compile Include="RecordTypes\RMS\Enums\SourceCodes.cs" />
+    <Compile Include="RecordTypes\RMS\Maintenance\Transactions\DateTransaction.cs" />
+    <Compile Include="RecordTypes\RMS\Maintenance\Transactions\DecimalTransaction.cs" />
+    <Compile Include="RecordTypes\RMS\Maintenance\Transactions\Transaction.cs" />
+    <Compile Include="RecordTypes\YGC\Enums\Disposition.cs" />
+    <Compile Include="RecordTypes\YGC\Enums\OccurrenceType.cs" />
+    <Compile Include="RecordTypes\YGC\Enums\TransactionCode.cs" />
+    <Compile Include="Utilities\FileReader.cs" />
+    <Compile Include="Utilities\InterestRemover.cs" />
+    <Compile Include="Utilities\InterestUpdater.cs" />
+    <Compile Include="Utilities\Output.cs" />
+    <Compile Include="RecordTypes\PLX2\PLX2.cs" />
+    <Compile Include="RecordTypes\PLX2\PLXBase2.cs" />
+    <Compile Include="RecordTypes\PLX\PLXMaint.cs" />
+    <Compile Include="RecordTypes\RMS\RMSMaint.cs" />
+    <Compile Include="CLS.cs" />
+    <Compile Include="Dantom.cs" />
+    <Compile Include="EDITypes.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="RecordTypes\FileReader.cs" />
+    <Compile Include="RecordTypes\Ford\Ford.cs" />
+    <Compile Include="RecordTypes\NAN\NAN.cs" />
+    <Compile Include="RecordTypes\NAN\NANBase.cs" />
+    <Compile Include="RecordTypes\NAN\NANMaint.cs" />
+    <Compile Include="RecordTypes\NCO\NCO.cs" />
+    <Compile Include="RecordTypes\NCO\NCOBase.cs" />
+    <Compile Include="RecordTypes\NCO\NCOTransactions.cs" />
+    <Compile Include="RecordTypes\PLX\PLX.cs" />
+    <Compile Include="RecordTypes\PLX\PLXBase.cs" />
+    <Compile Include="RecordTypes\RecordTypes.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecordTypes\RMS\RMS.cs" />
+    <Compile Include="Support.cs" />
+    <Compile Include="RecordTypes\Delimited\Base\TabDelimitedBaseRecord.cs" />
+    <Compile Include="RecordTypes\Trak\Trak.cs" />
+    <Compile Include="RecordTypes\Trak\TrakBase.cs" />
+    <Compile Include="RecordTypes\Walz\Walz.cs" />
+    <Compile Include="RecordTypes\YGC\YGC.cs" />
+    <Compile Include="RecordTypes2\YGC\YGC2.cs" />
+    <Compile Include="RecordTypes\YGC\YGCBase.cs" />
+    <Compile Include="Utilities\StringComparer.cs" />
+    <Compile Include="Utilities\Suffixes.cs" />
+    <Compile Include="Utilities\YGCConverter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="document-scroll.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="RecordTypes2\PLX\" />
+    <Folder Include="RecordTypes\YGC\Dictionaries\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
