@@ -46,6 +46,9 @@
     <Reference Include="ExcelInterface">
       <HintPath>..\Dependencies\ExcelInterface\bin\Debug\ExcelInterface.dll</HintPath>
     </Reference>
+    <Reference Include="ExchangeInterface">
+      <HintPath>..\Dependencies\ExchangeInterface\ExchangeInterface\bin\Debug\ExchangeInterface.dll</HintPath>
+    </Reference>
     <Reference Include="HB.Garnishments.Data">
       <HintPath>..\HB.Garnishments.Data\bin\Debug\HB.Garnishments.Data.dll</HintPath>
     </Reference>

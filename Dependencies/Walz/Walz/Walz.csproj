@@ -93,8 +93,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="Zip, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Zip">
       <HintPath>..\..\Zip\Zip\bin\Debug\Zip.dll</HintPath>
     </Reference>
   </ItemGroup>

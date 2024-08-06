@@ -56,12 +56,10 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="RecordTypes, Version=3.15.0.0, Culture=neutral, PublicKeyToken=74e43b89a7b79d62, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="RecordTypes">
       <HintPath>..\RecordTypes\RecordTypes\bin\Debug\RecordTypes.dll</HintPath>
     </Reference>
-    <Reference Include="RemoteFile, Version=0.10.0.0, Culture=neutral, PublicKeyToken=5074229e38b33c31, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="RemoteFile">
       <HintPath>..\RemoteFile\RemoteFile\bin\Debug\RemoteFile.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -76,8 +74,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
-    <Reference Include="Zip, Version=1.0.1.0, Culture=neutral, PublicKeyToken=5074229e38b33c31, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Zip">
       <HintPath>..\Zip\Zip\bin\Debug\Zip.dll</HintPath>
     </Reference>
   </ItemGroup>

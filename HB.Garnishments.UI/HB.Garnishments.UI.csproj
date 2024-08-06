@@ -75,7 +75,7 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CommonFormsLibrary, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="CommonFormsLibrary">
       <HintPath>..\Dependencies\CommonFormsLibrary\bin\Debug\CommonFormsLibrary.dll</HintPath>
     </Reference>
     <Reference Include="CustomMarshalers" />
