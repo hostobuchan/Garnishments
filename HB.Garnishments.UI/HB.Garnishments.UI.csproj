@@ -56,10 +56,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>false</SignManifests>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>02960936FE584C2A67D5F9321EF6796FA0F560D4</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>D6E222DEC66F0E6FA16FA2750AB6160A522B4C23</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>false</SignAssembly>
@@ -73,6 +73,9 @@
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>CodeSignV4.pfx</ManifestKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CommonFormsLibrary">
@@ -430,6 +433,7 @@
     </Compile>
     <Compile Include="Settings.cs" />
     <None Include="ClassDiagram1.cd" />
+    <None Include="CodeSignV4.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
