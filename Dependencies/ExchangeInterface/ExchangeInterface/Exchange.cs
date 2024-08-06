@@ -7,13 +7,12 @@ using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 using System.DirectoryServices.AccountManagement;
 using System.Security.Principal;
-using Microsoft.Identity.Client;
 using System.Net;
+using Microsoft.Identity.Client;
 using System.Net.Http;
-using System.Net.Mail;
-using System.IO;
-using Microsoft.Office.Interop.Excel;
-using System.Configuration;
+using Microsoft.Identity.Client.Platforms.Features.DesktopOs.Kerberos;
+using System.Data.SqlClient;
+
 namespace ExchangeInterface
 {
     public class Exchange : IDisposable
@@ -22,14 +21,13 @@ namespace ExchangeInterface
 
         protected NetworkCredential OnUnAuthorizedException(Exception ex)
         {
-            var credentials = new NetworkCredential(RegistryHandler.ReadProtectedString("Email"), RegistryHandler.ReadProtectedString("PasswordHash"));
+            var credentials = new NetworkCredential(DatabaseHandler.ReadProtectedString("refresh@hosto.com"), DatabaseHandler.ReadProtectedString("refresh@hosto.com"));
             if (string.IsNullOrEmpty(credentials.UserName) || string.IsNullOrEmpty(credentials.Password) || (this.Credentials != null && this.Credentials.UserName.Equals(credentials.UserName) && this.Credentials.Password.Equals(credentials.Password)))
             {
                 credentials = UnAuthorizedException?.Invoke(ex);
                 if (credentials != null)
                 {
-                    RegistryHandler.WriteProtectedString("Email", credentials.UserName);
-                    RegistryHandler.WriteProtectedString("PasswordHash", credentials.Password);
+                    DatabaseHandler.WriteProtectedString(credentials.UserName, credentials.Password);
                 }
             }
             return credentials;
@@ -38,72 +36,86 @@ namespace ExchangeInterface
         private string _Email;
         private NetworkCredential _Credentials;
         private NetworkCredential Credentials { get { return _Credentials; } set { _Credentials = value; this.Service.Credentials = new WebCredentials(value); } }
-
-        public object LibraryServiceImpl { get; private set; }
-
+        
         public ExchangeService Service = new ExchangeService(ExchangeVersion.Exchange2013_SP1);
+
+        public class TokenCredentials
+        {
+            public string ClientId { get; set; }
+            public string ClientSecret { get; set; }
+            public string TenantId { get; set; }
+        }
+
+        public TokenCredentials FetchCredentials()
+        {
+            string connectionString = "Data Source=SQL1;Initial Catalog=IT;Integrated Security=True";
+            string query = "SELECT TOP 1 ClientId, ClientSecret, TenantId FROM dbo.O365_Applications";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                connection.Open();
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        return new TokenCredentials
+                        {
+                            ClientId = reader["ClientId"].ToString(),
+                            ClientSecret = reader["ClientSecret"].ToString(),
+                            TenantId = reader["TenantId"].ToString()
+                        };
+                    }
+                }
+            }
+            throw new Exception("No credentials found in the database.");
+        }
 
 
         //Change made here add Client Application Builder async to obtain OAuth Credentials
         public async void TokenAuthCreationAsync()
         {
+            TokenCredentials credentials = FetchCredentials();
+
             var cca = ConfidentialClientApplicationBuilder
-              .Create("293daa97-99cc-4a31-bac1-a65571cbd08e")
-              .WithClientSecret("z088Q~U1qwc9WLTLRx~QFjJFOAJLFbvDJF1PXbMB")
-              .WithTenantId("b964694f-0cb9-4e9b-b605-51693b7011ef")
-              .Build();
+                .Create(credentials.ClientId)
+                .WithClientSecret(credentials.ClientSecret)
+                .WithTenantId(credentials.TenantId)
+                .Build();
 
             var ewsScopes = new string[] { "https://outlook.office365.com/.default" };
 
-            Microsoft.Identity.Client.AuthenticationResult authResult = null;
             try
             {
-                authResult = cca.AcquireTokenForClient(ewsScopes).ExecuteAsync().Result;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error: " + ex);
-            }
+                var authResult = await cca.AcquireTokenForClient(ewsScopes)
+                    .ExecuteAsync();
 
-            try
-            {
-                var ewsClient = new ExchangeService();
+                // Configure the ExchangeService with the access token
+                var ewsClient = Service;
                 ewsClient.Url = new Uri("https://outlook.office365.com/EWS/Exchange.asmx");
-                ewsClient.Credentials = new OAuthCredentials(authResult.AccessToken);
                 ewsClient.ImpersonatedUserId = new ImpersonatedUserId(ConnectingIdType.SmtpAddress, "refresh@hosto.com");
-                ewsClient.HttpHeaders.Add("X-AnchorMailbox", "refresh@hosto.com");
+                ewsClient.HttpHeaders.Add("X-AnchorMailbox", "refresh@hostobuchan.onmicrosoft.com");
+                ewsClient.Credentials = new OAuthCredentials(authResult.AccessToken);
 
-                try
+                using (var client = new HttpClient())
                 {
-                    using (var client = new HttpClient())
-                    {
-                        client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", authResult.AccessToken);
-
-                        ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
-                        var url = "https://outlook.office365.com/EWS/Exchange.asmx";
-                        var response = await client.GetStringAsync(url);
-
-                        Console.WriteLine("response =>" + response);
-
-                    }
-                }                  
-                    catch (HttpRequestException e)
-                    {
-                        // Handle HTTP request exceptions here.
-                        Console.WriteLine($"Request exception: {e.Message}");
-                    }
-               
+                    var url = "https://outlook.office365.com/EWS/Exchange.asmx";
+                    var response = await client.GetStringAsync(url);
+                }
+            }
+            catch (MsalException ex)
+            {
+                Console.WriteLine($"Error acquiring access token: {ex}");
             }
             catch (Exception ex)
             {
-                    Console.WriteLine("Error: " + ex);
+                Console.WriteLine($"Error: {ex}");
             }
-}
-           
+        }
 
-        private Exchange(string email, bool debug = true)
+        private Exchange(string email, bool debug = false)
         {
-            //Service = new ExchangeService(ExchangeVersion.Exchange2013_SP1);
+           //Service = new ExchangeService(ExchangeVersion.Exchange2013_SP1);
             Service.TraceEnabled = debug;
             Service.TraceFlags = TraceFlags.All;
             // Accept Expired Certificates, If Otherwise Valid
@@ -125,7 +137,7 @@ namespace ExchangeInterface
                 this.Credentials = new NetworkCredential(email, password);
             }
             catch (Exception ex)
-            {
+            { 
                 Console.WriteLine(ex.ToString());
             }
         }
@@ -144,7 +156,7 @@ namespace ExchangeInterface
 
         public EmailMessage GetEmailById(string UniqueID)
         {
-            //change made here bm
+            //change made here
             TokenAuthCreationAsync();
             return RunExchangeOperation(() => { return EmailMessage.Bind(this.Service, new ItemId(UniqueID)); });
         }
@@ -166,45 +178,42 @@ namespace ExchangeInterface
             //from EmailMessage. to email.
             email.Subject = Subject;
             email.Body = Body;
-
             if (Attachments != null)
             {
-
-
-                foreach (string Recipient in Recipients)
+                foreach (string File in Attachments)
                 {
-                     email.ToRecipients.Add(Recipient);
-                    
+                    email.Attachments.AddFileAttachment(File);
                 }
-                if (CcRecipients != null)
+            }
+            foreach (string Recipient in Recipients)
+            {
+                email.ToRecipients.Add(Recipient);
+            }
+            if (CcRecipients != null)
+            {
+                foreach (string Recipient in CcRecipients)
                 {
-                    foreach (string Recipient in CcRecipients)
-                    {
-                         email.CcRecipients.Add(Recipient);
-                        
-                    }
+                    email.CcRecipients.Add(Recipient);
                 }
-                if (SaveCopy)
-                {
-                    //change made here
-                    TokenAuthCreationAsync();
-                    RunExchangeOperation(() => { email.SendAndSaveCopy(); });
-                    
-                }
-                else
-                {
-                    //change made here
-                    TokenAuthCreationAsync();
-                    RunExchangeOperation(() => { email.Send(); });
-                    
-                }
+            }
+            if (SaveCopy)
+            {
+                //change made here
+                TokenAuthCreationAsync();
+                RunExchangeOperation(() => { email.SendAndSaveCopy(); });
+            }
+            else
+            {
+                //change made here
+                TokenAuthCreationAsync();
+                RunExchangeOperation(() => { email.Send(); });
             }
         }
 
         public void SendEmail(string Subject, string Body, string[] Recipients, string[] CcRecipients = null, Attachment[] Attachments = null, bool SaveCopy = false)
         {
             // Change made here
-            var email = new EmailMessage(Service);
+            var email  = new EmailMessage(Service);
             //EmailMessage message = new EmailMessage(Service);
 
             email.Subject = Subject;
@@ -369,7 +378,7 @@ namespace ExchangeInterface
             return RunExchangeOperation(() => { return new PullSubscriber(this.Service, Folders, 120, Watermark, Events); });
         }
 
-        private void RunExchangeOperation(System.Action operation)
+        private void RunExchangeOperation(Action operation)
         {
             if (string.IsNullOrEmpty(this.Service.Url?.AbsolutePath))
             {
@@ -444,7 +453,7 @@ namespace ExchangeInterface
                         if (credentials != null)
                         {
                             //Change Here
-                            TokenAuthCreationAsync();
+                            TokenAuthCreationAsync(); 
                             //this.Credentials = credentials;
                             return RunExchangeOperation(operation);
                         }
@@ -504,4 +513,3 @@ namespace ExchangeInterface
         }
     }
 }
-
